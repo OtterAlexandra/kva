@@ -1,0 +1,16 @@
+n = int(input())
+A, B, C = [_ for _ in range(n)], [_ for _ in range(n)], [_ for _ in range(n)]
+for i in range(n):
+    a, b, c = map(int, input().split())
+    A[i] = a
+    B[i] = b
+    C[i] = c
+if n == 1:
+    print(A[0])
+    exit(0)
+dp = [0 for _ in range(n + 1)]
+dp[1] = A[0]
+dp[2] = min(A[0] + A[1], B[0])
+for i in range(3, n + 1):
+    dp[i] = min(dp[i - 1] + A[i - 1], min(dp[i - 2] + B[i - 2], dp[i - 3] + C[i - 3]))
+print(dp[n])
