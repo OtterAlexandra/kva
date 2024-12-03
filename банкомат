@@ -4,7 +4,7 @@ a = list(map(int, input().split()))
 number = int(input())
 dp = [[0, 0]] * (number + 1)
 
-for elem in a:
+for elem in a: 
     if elem <= number:
         dp[elem] = [1, elem]
 
@@ -26,3 +26,6 @@ else:
     while number:
         print(dp[number][1], end=' ')
         number -= dp[number][1]
+#5
+#1 3 7 12 32
+#40
